@@ -89,7 +89,7 @@ USE_MODELTRANSLATION = False
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ["*"]
-
+SECRET_KEY = "django-insecure-=)h^&fbi*uvhscp+e8sw)7j59d9u5nm$g3(8achzjwt*28lic9"
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
