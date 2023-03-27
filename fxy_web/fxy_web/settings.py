@@ -89,7 +89,7 @@ USE_MODELTRANSLATION = False
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ["*"]
-SECRET_KEY = "django-insecure-=)h^&fbi*uvhscp+e8sw)7j59d9u5nm$g3(8achzjwt*28lic9"
+SECRET_KEY = "xuy+9ur+@#09#ywot5kbpf1c!ha2kphn)+_o2%d7nuky2&17t4"
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -181,6 +181,7 @@ STATIC_URL = "/static/"
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
 
+print("static: ",STATIC_ROOT);
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
