@@ -1,0 +1,19 @@
+{% load i18n pages_tags directory_tags%}
+
+{% spaceless %}
+
+<ul>
+{% for child in children %}
+    <li>
+        <a href="{{ child.get_absolute_url }}">{{ child.title }}</a>
+        {% if child.in_menu %}
+            {% directory_tree child %}
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
+
+
+
+{% endspaceless %}

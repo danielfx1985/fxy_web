@@ -1,0 +1,52 @@
+{% extends 'stuManage/base-.html' %}
+{% load django_tables2 %}
+{% load querystring from django_tables2 %}
+{{ table }}
+{% block nav %}
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#basicInfo"
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">基本信息
+            </button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#religionInfo"
+                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">宗教信息
+            </button>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#shoolInfo" type="button"
+                    role="tab" aria-controls="nav-contact" aria-selected="false">学校信息
+            </button>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#familyInfo"
+                    type="button"
+                    role="tab" aria-controls="nav-contact" aria-selected="false">家庭信息
+            </button>
+            <form method="get" class="d-flex" role="search" action="/stu/searchStu">
+                <input name="q" class="form-control me-2" type="search" placeholder="输入学生姓名" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">搜索</button>
+            </form>
+            <a href="/stu/export_xlsx">Download XLSX</a>
+
+        </div>
+    </nav>
+{% endblock %}
+{% block left_title %}
+    {% if table %}
+
+        <table data-toggle="table">
+            <thead>
+            <th>姓名</th>
+
+
+            </thead>
+            {% for col in student_info %}
+                <tr>
+                    <td>{{ col.name }}</td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
+{% block main_list %}
+
+ {% render_table table %}
+
+{% endblock %}

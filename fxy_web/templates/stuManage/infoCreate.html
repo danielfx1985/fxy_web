@@ -1,0 +1,292 @@
+{% extends 'stuManage/base.html' %}
+{% load crispy_forms_tags %}
+{% block main %}
+
+    <!--<div class="container">
+        <div class="row row-cols-2">
+            <div class="col">姓名:</div>
+            <div class="col">{{ form.name }}</div>
+            <div class="col">姓名:</div>
+            <div class="col">{{ form.name }}</div>
+        </div>
+    </div>-->
+    <!--  <form>{{ form|crispy}}</form>-->
+
+    <div class="container bg-white ">
+
+        <nav class="row justify-content-xl-center" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb col-4 fs-4">
+                <li class="breadcrumb-item"><a href="{% url 'student_info' %}">教务管理系统</a></li>
+
+                <li class="breadcrumb-item active" aria-current="page">录入新学生信息</li>
+            </ol>
+        </nav>
+        <nav>
+            <div class="nav nav-tabs justify-content-md-center" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-basicInfo-tab" data-bs-toggle="tab" data-bs-target="#basicInfo"
+                        type="button" role="tab" aria-controls="nav-home" aria-selected="true">基本信息
+                </button>
+                <button class="nav-link" id="nav-religionInfo-tab" data-bs-toggle="tab" data-bs-target="#religionInfo"
+                        type="button" role="tab" aria-controls="nav-profile" aria-selected="false">宗教信息
+                </button>
+                <button class="nav-link" id="nav-shoolInfo-tab" data-bs-toggle="tab" data-bs-target="#shoolInfo"
+                        type="button"
+                        role="tab" aria-controls="nav-contact" aria-selected="false">学校信息
+                </button>
+                <button class="nav-link" id="nav-familyInfo-tab" data-bs-toggle="tab" data-bs-target="#familyInfo"
+                        type="button"
+                        role="tab" aria-controls="nav-contact" aria-selected="false">家庭信息
+                </button>
+                <button class="nav-link" id="nav-fileInfo-tab" data-bs-toggle="tab" data-bs-target="#fileInfo"
+                        type="button"
+                        role="tab" aria-controls="nav-contact" aria-selected="false">档案文件
+                </button>
+
+
+            </div>
+        </nav>
+        <script>
+
+
+            $(document).ready(function () {
+
+                window.onload = function () {
+                    // $('td').children("button").hide();
+                    $("#basicInfo").removeClass("d-none");
+                    $("#religionInfo").addClass("d-none");
+                    $("#shoolInfo").addClass("d-none");
+                    $("#familyInfo").addClass("d-none");
+                    $("#fileInfo").addClass("d-none");
+                }
+                $("#nav-basicInfo-tab").click(function () {
+                    $("#basicInfo").removeClass("d-none");
+                    $("#religionInfo").addClass("d-none");
+                    $("#shoolInfo").addClass("d-none");
+                    $("#familyInfo").addClass("d-none");
+                    $("#fileInfo").addClass("d-none");
+                    //alert("1111");
+                });
+                $("#nav-religionInfo-tab").click(function () {
+                    $("#basicInfo").addClass("d-none");
+                    $("#religionInfo").removeClass("d-none");
+                    $("#shoolInfo").addClass("d-none");
+                    $("#familyInfo").addClass("d-none");
+                    $("#fileInfo").addClass("d-none");
+                    //alert("1111");
+                });
+                $("#nav-shoolInfo-tab").click(function () {
+                    $("#basicInfo").addClass("d-none");
+                    $("#religionInfo").addClass("d-none");
+                    $("#shoolInfo").removeClass("d-none");
+                    $("#familyInfo").addClass("d-none");
+                    $("#fileInfo").addClass("d-none");
+                    //alert("1111");
+                });
+                $("#nav-familyInfo-tab").click(function () {
+                    $("#basicInfo").addClass("d-none");
+                    $("#religionInfo").addClass("d-none");
+                    $("#shoolInfo").addClass("d-none");
+                    $("#familyInfo").removeClass("d-none");
+                    $("#fileInfo").addClass("d-none");
+                    // alert("1111");
+                });
+                $("#nav-fileInfo-tab").click(function () {
+                    $("#basicInfo").addClass("d-none");
+                    $("#religionInfo").addClass("d-none");
+                    $("#shoolInfo").addClass("d-none");
+                    $("#familyInfo").addClass("d-none");
+                    $("#fileInfo").removeClass("d-none");
+                    //alert("1111");
+                });
+
+            });
+        </script>
+        <form name="form" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+            <div id="basicInfo" class="row fade active show tab-pane justify-content-md-center">
+
+                <div class="col-md-5 justify-content-md-center">
+                    <ul class="list-group ">
+                        <!--  <li class="list-group-item bg-warning">基本信息</li>-->
+
+                        <li class="list-group-item"> 姓名：{{ form.name}}</li>
+                        <li class="list-group-item">民族：{{ form.minzu }}</li>
+                        <li class="list-group-item">出生日期：{{ form.birth_date }}</li>
+                        <li class="list-group-item">年龄：{{ form.age }}</li>
+                        <li class="list-group-item">身份证：{{ form.sfid }}</li>
+                        <li name="tel" class="list-group-item">电话：{{ form.tel }}</li>
+                        <li class="list-group-item">户口类型：{{ form.hukou }}</li>
+                        <li class="list-group-item">地址：{{ form.adress }}</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div id="religionInfo" class="row tab-pane fade justify-content-md-center">
+                <div class="col-md-5">
+                    <ul class="list-group">
+
+                        <li class="list-group-item">法名：{{ form.dhamma_name }}</li>
+                        <li class="list-group-item">教职身份：{{ form.title2 }}</li>
+                        <li class="list-group-item">教职人员编号：{{ form.teacher_id }}</li>
+                        <li class="list-group-item">出家年月：{{ form.monk_date }}</li>
+                        <li class="list-group-item">出家寺院：{{ form.monk_temple }}</li>
+                        <li class="list-group-item">戒师：{{ form.sila_teacher }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="shoolInfo" class="row tab-pane fade justify-content-md-center">
+                <div class="col-md-5">
+                    <ul class="list-group">
+
+                        <li class="list-group-item">年级：{{ form.grade }}</li>
+                        <li class="list-group-item">学号（国民教育）：{{ form.base_id }}</li>
+                        <li class="list-group-item">学号（宗教教育）：{{ form.religion_id }}</li>
+                        <li class="list-group-item">学历层次：{{ form.study_level }}</li>
+                        <li class="list-group-item">学生类别 ：{{ form.student_type }}</li>
+                        <li class="list-group-item">学制：{{ form.school_lenth }}</li>
+                        <li class="list-group-item">入学日期：{{ form.enrol_date }}</li>
+                        <li class="list-group-item">是否参加中考：{{ form.middle_exam }}</li>
+                        <li class="list-group-item">毕业学校：{{ form.graduate_school }}</li>
+
+                    </ul>
+
+                </div>
+            </div>
+            <div id="fileInfo" class="row tab-pane fade justify-content-md-center">
+                <div class="col-md-5">
+                    <ul class="list-group">
+
+                        <li class="list-group-item">袈裟证件照：{{ form.jiasha_photo }}</li>
+                        <li class="list-group-item">便装证件照：{{ form.clothes_photo }}</li>
+                        <li class="list-group-item">身份证国徽面：{{ form.ID_f_photo }}</li>
+                        <li class="list-group-item">身份证人像面：{{ form.ID_b_photo }}</li>
+                        <li class="list-group-item">户口簿户主页：{{ form.FamilyAc_m_photo }}</li>
+                        <li class="list-group-item">户口簿本人页：{{ form.FamilyAc_p_photo }}</li>
+                        <li class="list-group-item">学生安全协议书：{{ form.security }}</li>
+
+                    </ul>
+
+                </div>
+            </div>
+            <div id="familyInfo" class="row tab-pane fade justify-content-md-center">
+                <div class="col-md-5">
+                    <ul class="list-group">
+
+
+                        <li class="list-group-item">关系：{{ form.relationship1 }}</li>
+                        <li class="list-group-item">姓名：{{ form.fml_name1 }}</li>
+                        <li class="list-group-item">民族：{{ form.minzhu1 }}</li>
+                        <li class="list-group-item">工作情况：{{ form.job_info1 }}</li>
+                        <li class="list-group-item">电话 ：{{ form.fml_tel1 }}</li>
+                        <li class="list-group-item">身份证照片国徽面：{{ form.fml_id_f1 }}</li>
+<li class="list-group-item">身份证照片人像面：{{ form.fml_id_b1 }}</li>
+                        <li class="list-group-item  ">
+                            <button type="button" class="btn btn-sm btn-outline-info  float-end" onclick="addNewMb()">
+                                +家庭成员
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="row justify-content-md-center">
+                    <div id="fmy2" class="col-md-5"></div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div id="fmy3" class="col-md-5"></div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div id="fmy4" class="col-md-5"></div>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div id="fmy5" class="col-md-5"></div>
+                </div>
+
+
+            </div>
+
+            <div class="row justify-content-md-center">
+                <div class="col-md-5"><input class="btn btn-success" type="submit" value="录入"></div>
+            </div>
+
+        </form>
+    </div>
+
+
+    <script>
+
+        a = 2;
+
+        function addNewMb() {
+            var html_;
+            var html2 =
+                '<ul class="list-group">\
+                    <li class="list-group-item">关系：{{ form.relationship2 }}</li>\
+                    <li class="list-group-item">姓名：{{ form.fml_name2 }}</li>\
+                    <li class="list-group-item">民族：{{ form.minzhu2 }}</li>\
+                    <li class="list-group-item">工作情况：{{ form.job_info2 }}</li>\
+                    <li class="list-group-item">电话 ：{{ form.fml_tel2 }}</li>\
+                    <li class="list-group-item"><button type="button" class="btn btn-sm btn-outline-info  float-end" onclick="addNewMb()"> +家庭成员 </button></li>\
+                    <li class="list-group-item">身份证照片国徽面：{{ form.fml_id_f2 }}</li>\
+<li class="list-group-item">身份证照片人像面：{{ form.fml_id_b2 }}</li>\
+                </ul> '
+
+            var html3 =
+                '<ul class="list-group">\
+                    <li class="list-group-item">关系：{{ form.relationship3 }}</li>\
+                    <li class="list-group-item">姓名：{{ form.fml_name3 }}</li>\
+                    <li class="list-group-item">民族：{{ form.minzhu3 }}</li>\
+                    <li class="list-group-item">工作情况：{{ form.job_info3 }}</li>\
+                    <li class="list-group-item">电话 ：{{ form.fml_tel3 }}</li>\
+                    <li class="list-group-item"><button type="button" class="btn btn-sm btn-outline-info  float-end" onclick="addNewMb()"> +家庭成员 </button></li>\
+                    <li class="list-group-item">身份证照片国徽面：{{ form.fml_id_f3 }}</li>\
+<li class="list-group-item">身份证照片人像面：{{ form.fml_id_b3 }}</li>\
+                </ul>'
+            var html4 =
+                '<ul class="list-group">\
+                    <li class="list-group-item">关系：{{ form.relationship4 }}</li>\
+                    <li class="list-group-item">姓名：{{ form.fml_name4 }}</li>\
+                    <li class="list-group-item">民族：{{ form.minzhu4 }}</li>\
+                    <li class="list-group-item">工作情况：{{ form.job_info4 }}</li>\
+                    <li class="list-group-item">电话 ：{{ form.fml_tel4 }}</li>\
+                    <li class="list-group-item"><button type="button" class="btn btn-sm btn-outline-info  float-end" onclick="addNewMb()"> +家庭成员 </button></li>\
+                    <li class="list-group-item">身份证照片国徽面：{{ form.fml_id_f4 }}</li>\
+<li class="list-group-item">身份证照片人像面：{{ form.fml_id_b4 }}</li>\
+                </ul>'
+            var html5 =
+                '<ul class="list-group">\
+                    <li class="list-group-item">关系：{{ form.relationship5 }}</li>\
+                    <li class="list-group-item">姓名：{{ form.fml_name5 }}</li>\
+                    <li class="list-group-item">民族：{{ form.minzhu5 }}</li>\
+                    <li class="list-group-item">工作情况：{{ form.job_info5 }}</li>\
+                    <li class="list-group-item">电话 ：{{ form.fml_tel5 }}</li>\
+                    <li class="list-group-item"><button type="button" class="btn btn-sm btn-outline-info  float-end" onclick="addNewMb()"> +家庭成员 </button></li>\
+                    <li class="list-group-item">身份证照片国徽面：{{ form.fml_id_f5 }}</li>\
+<li class="list-group-item">身份证照片人像面：{{ form.fml_id_b5 }}</li>\
+                </ul>'
+            switch (a) {
+                case 2:
+                    html_ = html2;
+                    break;
+                case 3:
+                    html_ = html3;
+                    break;
+                case 4:
+                    html_ = html4;
+                    break;
+                case 5:
+                    html_ = html5;
+                    break;
+            }
+
+            document.getElementById('fmy' + a).innerHTML = html_;
+            a++;
+
+        }
+
+        function validateForm(){
+            var x=document.forms['form']['tel'].value;
+
+            alert(x)
+        }
+    </script>
+{% endblock %}

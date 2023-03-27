@@ -1,0 +1,46 @@
+{% load i18n pages_tags %}
+
+{% spaceless %}
+
+
+    {% if page_branch_in_menu %}
+
+        <ul class="nav nav-list navlist-menu-level-{{ branch_level }}">
+            {% for page0 in page_branch %}
+
+                {% if not has_home and page0.is_primary and forloop.first %}
+                    <li{% if on_home %} class="active"{% endif %} id="tree-menu-home">
+                        <a href="{% url "home" %}" style="color:#702727">{% trans "Home" %}</a>
+                    </li>
+                {% endif %}
+
+
+                {% if page0.in_menu is True %}
+
+                    {% if page.parent.parent.parent_id == page0.id or page.parent.parent_id == page0.id or page0.id == page.parent_id or  page0.id == page.id or page0.parent_id == page.id or page0.parent.parent_id == page.id or page.parent_id == page0.parent_id and page0.parent_id != None%}
+
+                   {#   -{{ page.id }}/{{ page.parent_id }}/{{ page0.id }}/{{ page0.parent_id }} #}
+
+                        <li class="
+    {% if page0.is_current %} active{% endif %}
+    {% if page0.is_current_or_ascendant %} active-branch{% endif %}
+    " id="tree-menu-{{ page0.html_id }}" style="">
+                            <a href="{{ page0.get_absolute_url }}" style="color:#702727">{{ page0.title }}</a>
+                            {# wrap the next line with 'if page.is_current_or_ascendant' #}
+                            {# to only show child pages in the menu for the current page0 #}
+                            {% if  page0.has_children_in_menu %}{% page_menu page0 %}{% endif %}
+
+                        </li>
+                    {% endif %}
+
+
+
+
+
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+{% endspaceless %}

@@ -1,0 +1,58 @@
+{% extends 'stuManage/base-.html' %}
+
+
+
+{% block main %}
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#basicInfo" type="button" role="tab" aria-controls="nav-home" aria-selected="true">基本信息</button>
+    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#religionInfo" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">宗教信息</button>
+    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#shoolInfo" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">学校信息</button>
+   </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">  {% if baseInfoList %}
+
+        <table data-toggle="table">
+        <thead>
+        <th>姓名</th>
+          <th>年龄</th>
+          <th>民族</th>
+        <th>出生日期</th>
+        <th>家庭住址</th>
+        </thead>
+         {% for col in baseInfoList %}
+            <tr>
+            <td>{{ col.name }}</td>
+            <td>{{ col.age }}</td>
+            <td>{{ col.minzu }}</td>
+            <td>{{ col.birth_date }}</td>
+            <td>{{ col.adress }}</td>
+            </tr>
+         {% endfor %}
+        </table>
+    {% endif %}</div>
+  <div class="tab-pane fade" id="religionInfo" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0"><table data-toggle="table">
+        <thead>
+        <th>姓名</th>
+          <th>年龄</th>
+          <th>民族</th>
+        <th>出生日期</th>
+        <th>家庭住址</th>
+        </thead>
+         {% for col in baseInfoList %}
+            <tr>
+            <td>{{ col.name }}</td>
+            <td>{{ col.age }}</td>
+            <td>{{ col.minzu }}</td>
+            <td>{{ col.birth_date }}</td>
+            <td>{{ col.adress }}</td>
+            </tr>
+         {% endfor %}
+        </table></div>
+  <div class="tab-pane fade" id="shoolInfo" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">.3..</div>
+
+</div>
+
+{% endblock %}

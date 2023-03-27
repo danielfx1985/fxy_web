@@ -1,0 +1,54 @@
+{% extends 'stuManage/base-.html' %}
+{% load crispy_forms_tags %}
+{% block main %}
+    <div class="container-fluid">
+        <div class="row-cols-auto bg-light"><h1 class="text-center text-light"><span class="badge bg-secondary">学生信息录入</span></h1></div>
+        <form method="post">{% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    <ul class="list-group">
+                        <li class="list-group-item bg-info">基本信息</li>
+                        <li class="list-group-item">姓名：{{ form.name }}</li>
+                        <li class="list-group-item">民族：{{ form.minzu }}</li>
+                        <li class="list-group-item">出生日期：{{ form.birth_date }}</li>
+                        <li class="list-group-item">年龄：{{ form.age }}</li>
+                        <li class="list-group-item">电话：{{ form.tel }}</li>
+                        <li class="list-group-item">地址：{{ form.adress }}</li>
+
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul class="list-group">
+                        <li class="list-group-item bg-info">宗教信息</li>
+                        <li class="list-group-item">法名：{{ form.dhamma_name }}</li>
+                        <li class="list-group-item">教职身份：{{ form.title2 }}</li>
+                        <li class="list-group-item">教职人员编号：{{ form.teacher_id }}</li>
+                        <li class="list-group-item">出家年月：{{ form.monk_date }}</li>
+                        <li class="list-group-item">出家寺院：{{ form.monk_temple }}</li>
+                        <li class="list-group-item">戒师：{{ form.sila_teacher }}</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <ul class="list-group">
+                        <li class="list-group-item bg-info">学籍信息</li>
+                        <li class="list-group-item">年级：{{ form.grade }}</li>
+                        <li class="list-group-item">学号（国民教育）：{{ form.base_id }}</li>
+                        <li class="list-group-item">学号（宗教教育）：{{ form.religion_id }}</li>
+                        <li class="list-group-item">学历层次：{{ form.study_level }}</li>
+                        <li class="list-group-item">学生类别 ：{{ form.student_type }}</li>
+                        <li class="list-group-item">学制：{{ form.school_lenth }}</li>
+                        <li class="list-group-item">入学日期：{{ form.enrol_date }}</li>
+                        <li class="list-group-item">是否参加中考：{{ form.middle_exam }}</li>
+                        <li class="list-group-item">毕业学校：{{ form.graduate_school }}</li>
+
+                    </ul>
+                    <input class="btn btn-primary" type="submit" value="录入">
+                </div>
+
+            </div>
+
+
+
+        </form>
+    </div>
+{% endblock %}

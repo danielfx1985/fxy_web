@@ -1,0 +1,78 @@
+{% extends "baseCSS5.html" %}
+{% load pages_tags mezzanine_tags i18n static %}
+
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block main %}
+    <div class="container-fluid">
+
+        {% nevercache %}
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}c
+                        <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endnevercache %}
+
+        <div class="row ">
+            <div class="col-" style="display: block;background-image: url({% static "img/banner_bg.fw.png" %})">
+
+                <img style="display:block;margin: auto;"
+
+                     src="{% static "img/logo_big.fw.png" %}"
+
+                >
+            </div>
+        </div>
+
+        <div class="row align-items-center">
+            <ul class="col breadcrumb">
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-3  ">
+
+                <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
+
+            </div>
+
+            <div class="col-md-7" style="background-color: #f9f6f0">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="d-block w-100" src="{% static "img/p0.fw.png" %}" alt="First slide">
+                        </div>
+                        <div class="item">
+                            <img class="d-block w-100" src="{% static "img/p1.fw.png" %}" alt="Second slide">
+                        </div>
+                        <div class="item">
+                            <img class="d-block w-100" src="{% static "img/p2.fw.png" %}" alt="Third slide">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                这十年，以习近平同志为核心的党中央团结带领全党全军全国各族人民，采取一系列战略性举措，推进一系列变革性实践，实现一系列突破性进展，取得一系列标志性成果，党和国家事业取得历史性成就、发生历史性变革，推动我国迈上全面建设社会主义现代化国家新征程。
+
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-sm-1">1111</div>
+            <div class="col-sm-1">2222</div>
+            <div class="col-sm-1">1111</div>
+        </div>
+    </div>
+
+{% endblock %}

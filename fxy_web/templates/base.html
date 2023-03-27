@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+{% load pages_tags mezzanine_tags i18n static %}
+{% load blog_tags %}
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <title>
+        {% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+
+    {% ifinstalled "mezzanine.blog" %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+        <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+    {% endifinstalled %}
+    <link rel="stylesheet" href="{% static "css/csbootstrap.css" %}">
+    {% compress css %}
+
+
+        <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+
+
+        {% ifinstalled "cartridge.shop" %}
+            <link rel="stylesheet" href="{% static "css/cartridge.css" %}">
+            {% if LANGUAGE_BIDI %}
+                <link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
+            {% endif %}
+        {% endifinstalled %}
+        {% block extra_css %}{% endblock %}
+    {% endcompress %}
+
+    {% compress js %}
+        <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+
+
+       <script src="{% static "js/bootstrap-extras.js" %}"></script>
+        <script src="{% static "js/bootstrap320.js" %}"></script>
+        {% block extra_js %}{% endblock %}
+    {% endcompress %}
+
+    <!--[if lt IE 9]>
+<script src="{% static "js/html5shiv.js" %}"></script>
+<script src="{% static "js/respond.min.js" %}"></script>
+
+<![endif]-->
+
+    {% block extra_head %}{% endblock %}
+</head>
+<style>
+    #img1 {
+        position: fixed;
+        left: 0px;
+        top: 200px;
+        z-index: 99999;
+    }
+
+    #img2 {
+        position: fixed;
+        left: 100px;
+        top: 200px;
+        display: none;
+        z-index: 99999;
+    }
+
+    h3 {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    /*
+        h3::before{
+
+            content: url("
+    {% static "img/timg.fw.png" %}
+    ");
+        }
+        h3::after{
+
+            content: url("
+    {% static "img/timg.fw.png" %}
+    ");
+        }*/
+    .navbar-nav::before {
+        content: url("{% static "img/nav-l.fw.png" %}");
+        margin-right: 5px;
+        margin-top: 5px;
+        margin-bottom: -3px;
+    }
+
+    .navbar-nav::after {
+        content: url("{% static "img/nav-r.fw.png" %}");
+        margin-left: 5px;
+        margin-top: 5px;
+        margin-bottom: -3px;
+    }
+
+    @media (max-width: 480px) {
+        .desktop-image {
+            display: none;
+        }
+
+        .mobile-image {
+            display: block;
+        }
+    }
+
+    @media (min-width: 480px) {
+        .desktop-image {
+            display: block;
+        }
+
+        .mobile-image {
+            display: none;
+        }
+    }
+
+
+
+    }
+</style>
+<body style="font-size:18px;background-color:white;background-image: url('{% static 'img/bg-5.fw.png' %}')"
+      id="{% block body_id %}body{% endblock %}">
+
+<img src="{% static "img/gzwm.fw.png" %}" id="img1" onmouseover="document.getElementById('img2').style.display='block'
+;" onmouseout="document.getElementById('img2').style.display='none'
+;">
+<img src="{% static "img/gzh2v.png" %}" id="img2">
+
+
+<nav class=" navbar navbar-default  navbar-fixed-top" role="navigation" style="background: #9d1d1d">
+    <div class="container">
+        <div class="navbar-header ">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">{% trans "Toggle Navigation" %}</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            {% block navbar_title %}
+            {% endblock %}
+        </div>
+
+        <div class="navbar-collapse collapse d-flex justify-content-center "
+             style=" ">
+
+            {% block navbar_dropdown_menu %}{% page_menu "pages/menus/dropdown.html" %}{% endblock %}
+
+        </div>
+    </div>
+
+
+</nav>
+
+<div class="container-fluid">
+
+    {% nevercache %}
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}c
+                    <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endnevercache %}
+
+    <div class="row ">
+        <div class="col-" style="display: block;background-image: url({% static "img/banner_bg.jpg" %})">
+
+            <img id="image" style="margin: auto;"
+                 class="desktop-image"
+                 src="{% static "img/logo_big.fw.png" %}"
+
+            >
+            <img id="image" style="margin: auto;"
+                 class="mobile-image"
+                 src="{% static "img/logo_sm.png" %}"
+
+            >
+
+
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <ul class="col breadcrumb">
+        </ul>
+    </div>
+</div>
+
+
+<div class="container-fluid ">
+    <div class="row justify-content-center">
+        <div class="col-md-3 " style="padding-left:150px">
+            {% block left_panel %}
+                <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
+            {% endblock %}
+        </div>
+        <div class="col-md-6  " style="background-color: #FFFFFF;">
+            {% block main %}{% endblock %}
+
+        </div>
+        {% block news %}
+            <div class="col-md-3  rounded-4  mx-auto text-xs text-center"
+                 style="margin-left:60px;width:300px;margin-top:10px;height:400px;background-color: #fff8f6;border-width: 1px;border-style:dashed;border-color: #a9a9a9;">
+
+                {% blog_recent_posts category="学院公告" as posts %}
+
+
+                <h3 class="">学院公告</h3>
+
+                {% for post in posts %}
+
+                    <h4><a href="{{ post.get_absolute_url }}" style="color:#702727">{{ post.title }}        </a></h4>
+                    <h5>发布时间：{{ post.publish_date |date:"Y-m-d"}}</h5>
+
+                {% endfor %}
+
+
+            </div>
+        {% endblock %}
+
+    </div>
+
+    <div class="row">{% block dongtai %}{% endblock %}</div>
+    <div class="row">{% block tuji %}{% endblock %}</div>
+</div>
+
+<footer style="padding:15px 0 15px;background-color: #3c1515;color:#faf6f1">
+
+    <div class="container" style="font-size: 15px">
+
+
+        <div class="row justify-content-center ">
+
+            <div class="col-md-2 text-center">
+                <img src="{% static "img/foot_gzh.jpg" %}">
+
+            </div>
+            <div class="col-md-3 center-block text-left"><p></p>
+
+ <img src="{% static "img/foot_logo.fw.png" %}"><p></p>
+                <div><p>                                              版权所有 © 云南佛学院西双版纳分院<p>
+                  </div>
+            </div>
+            <div class="col-md-4  text-left"><p></p><p> </p>
+             <p>  互联网宗教信息服务许可证：云（2022）0000029 </p>  <p>备案号：</p>
+            </div>
+            <div class="col-md-2"><p> 地址： </p><p> 邮编：
+                666100 </p><p>电话：</p></div>
+            <div class="col-md-1"> </div>
+        </div>
+    </div>
+
+</footer>
+
+{% block footer_js %}
+    {% include "includes/footer_scripts.html" %}
+{% endblock %}
+
+</body>
+</html>

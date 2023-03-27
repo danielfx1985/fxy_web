@@ -1,0 +1,13 @@
+{% extends 'stuManage/base-.html' %}
+{% load crispy_forms_tags %}
+{% block main %}
+<div class="container">
+
+    <form method="POST" class="post-form">{% csrf_token %}
+        <p> 学生信息录入系统 </p>
+             {{ form|crispy }}
+
+            <button type="submit" class="save btn btn-default">录入</button>
+        </form>
+</div>
+{% endblock %}
