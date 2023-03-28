@@ -8,4 +8,4 @@ local_settings.py
 
 syntax: regexp
 ^static/
-^media/
+static/media/

@@ -5,4 +5,4 @@
 .coverage
 local_settings.py
 uwsgi_local.ini
-/media
+/static/media
