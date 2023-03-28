@@ -8,11 +8,7 @@
         <ul class="nav nav-list navlist-menu-level-{{ branch_level }}">
             {% for page0 in page_branch %}
 
-                {% if not has_home and page0.is_primary and forloop.first %}
-                    <li{% if on_home %} class="active"{% endif %} id="tree-menu-home">
-                        <a href="{% url "home" %}" style="color:#702727">{% trans "Home" %}</a>
-                    </li>
-                {% endif %}
+
 
 
                 {% if page0.in_menu is True %}
