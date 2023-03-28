@@ -18,7 +18,7 @@
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active" id="tab1">
+  <div class="tab-pane" id="tab1">
     {% blog_recent_posts limit=8 category="宗教政策" as dongtai %}
         {% for post in dongtai %}
 
@@ -38,7 +38,7 @@
 
         {% endfor %}
   </div>
-  <div class="tab-pane" id="tab3">
+  <div class="tab-pane  active" id="tab3">
     {% blog_recent_posts limit=8 category="新闻大事" as dongtai %}
         {% for post in dongtai %}
 
