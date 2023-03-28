@@ -18,13 +18,15 @@
 {% block main %}
 
 <p>
-
+{#
     {% if results.paginator.count == 0 %}
 
 没有找到结果
 
 {% else %}
-以下是关于 “ {{ query }} ” 的搜索结果：
+{% blocktrans with start=results.start_index end=results.end_index total=results.paginator.count %}
+Showing {{ start }} to {{ end }} of {{ total }} results in {{ search_type }} matching your query: {{ query }}
+{% endblocktrans %}
 {% endif %}
 </p>
 

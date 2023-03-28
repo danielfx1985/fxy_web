@@ -109,7 +109,7 @@ USE_TZ = True
 # Supported languages
 #LANGUAGES = (("en", _("English")),)
 LANGUAGE_CODE = "zh-hans"
-
+SEARCH_MODEL_CHOICES=('pages.Page', 'blog.BlogPost')
 # Supported languages
 LANGUAGES = (("zh-hans", _("简体中文")),)
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
