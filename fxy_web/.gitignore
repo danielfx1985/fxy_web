@@ -6,3 +6,4 @@
 local_settings.py
 uwsgi_local.ini
 /static/media
+/media
