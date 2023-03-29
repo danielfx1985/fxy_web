@@ -1,5 +1,5 @@
 {% extends "blog/blog_post_list.html" %}
-{% load mezzanine_tags comment_tags keyword_tags rating_tags i18n disqus_tags %}
+{% load pages_tags mezzanine_tags comment_tags keyword_tags rating_tags i18n disqus_tags %}
 
 {% block meta_title %}{{ blog_post.meta_title }}{% endblock %}
 
@@ -20,9 +20,10 @@
     {{ block.super }}
     <li class="breadcrumb-item active">{{ blog_post.title }}</li>
 {% endblock %}
-
+{% block left_panel %}
+                <div class="text-right"><button class="btn btn-light btn-lg"  onclick="window.history.back()">返回目录</button></div>
+{% endblock %}
 {% block main %}
-
 
 
     {% block blog_post_detail_featured_image %}
