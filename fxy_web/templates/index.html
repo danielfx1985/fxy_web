@@ -11,13 +11,13 @@
 {% endblock %}
  {% block left_panel %}
 
-<ul class="nav nav-tabs" style="padding-left: 10px">
+<ul class="nav nav-tabs" style="margin-left:-140px">
   <li><a   style="color:#266d95" href="#tab1" data-toggle="tab">宗教政策</a></li>
   <li><a style="color:#266d95" href="#tab2" data-toggle="tab">法规章程</a></li>
   <li  class="active"><a  style="color:#266d95"  href="#tab3" data-toggle="tab">要闻关注</a></li>
 </ul>
 
-<div class="tab-content" style="padding-left:10px !important;background-color:#fffdf1;min-height:600px ">
+<div class="tab-content" style="margin-left:-140px !important;background-color:#fffdf1;min-height:600px ">
   <div class="tab-pane" id="tab1">
     {% blog_recent_posts limit=8 category="宗教政策" as dongtai %}
         {% for post in dongtai %}
