@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+<html lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %} dir="rtl" {% endif %}>
 {% load pages_tags mezzanine_tags i18n static %}
 {% load blog_tags %}
 
@@ -10,42 +10,52 @@
     <meta name="description" content="{% block meta_description %}{% endblock %}">
     <title>
         {% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
-    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+    <link rel="shortcut icon" href="{% static " img
+    /favicon.ico" %}">
 
     {% ifinstalled "mezzanine.blog" %}
-        <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
-        <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url " blog_post_feed
+    " "rss" %}">
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url " blog_post_feed
+    " "atom" %}">
     {% endifinstalled %}
-    <link rel="stylesheet" href="{% static "css/csbootstrap.css" %}">
+    <link rel="stylesheet" href="{% static " css
+    /csbootstrap.css" %}">
     {% compress css %}
 
 
-        <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+    <link rel="stylesheet" href="{% static " css
+    /mezzanine.css" %}">
 
 
-        {% ifinstalled "cartridge.shop" %}
-            <link rel="stylesheet" href="{% static "css/cartridge.css" %}">
-            {% if LANGUAGE_BIDI %}
-                <link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
-            {% endif %}
-        {% endifinstalled %}
-        {% block extra_css %}{% endblock %}
+    {% ifinstalled "cartridge.shop" %}
+    <link rel="stylesheet" href="{% static " css
+    /cartridge.css" %}">
+    {% if LANGUAGE_BIDI %}
+    <link rel="stylesheet" href="{% static " css
+    /cartridge.rtl.css" %}">
+    {% endif %}
+    {% endifinstalled %}
+    {% block extra_css %}{% endblock %}
     {% endcompress %}
 
     {% compress js %}
-        <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+    <script src="{% static " mezzanine
+    /js/"|add:settings.JQUERY_FILENAME %}"></script>
 
 
-       <script src="{% static "js/bootstrap-extras.js" %}"></script>
-        <script src="{% static "js/bootstrap320.js" %}"></script>
-        {% block extra_js %}{% endblock %}
+    <script src="{% static " js
+    /bootstrap-extras.js" %}"></script>
+    <script src="{% static " js
+    /bootstrap320.js" %}"></script>
+    {% block extra_js %}{% endblock %}
     {% endcompress %}
 
     <!--[if lt IE 9]>
-<script src="{% static "js/html5shiv.js" %}"></script>
-<script src="{% static "js/respond.min.js" %}"></script>
+    <script src="{% static " js/html5shiv.js" %}"></script>
+    <script src="{% static " js/respond.min.js" %}"></script>
 
-<![endif]-->
+    <![endif]-->
 
     {% block extra_head %}{% endblock %}
 </head>
@@ -84,14 +94,14 @@
     ");
         }*/
     .navbar-nav::before {
-        content: url("{% static "img/nav-l.fw.png" %}");
+        content: url("{% static " img/nav-l.fw.png " %}");
         margin-right: 5px;
         margin-top: 5px;
         margin-bottom: -3px;
     }
 
     .navbar-nav::after {
-        content: url("{% static "img/nav-r.fw.png" %}");
+        content: url("{% static " img/nav-r.fw.png " %}");
         margin-left: 5px;
         margin-top: 5px;
         margin-bottom: -3px;
@@ -118,26 +128,25 @@
     }
 
 
-
     }
 </style>
 <script>
-/*
-    $(document).ready(function() {
-  setTimeout(function() {
-    $('html,body').animate({
-      scrollTop: $('#iWantToScrollHere').offset().top - 80
-    }, 900);
-  }, 3000);
-});*/
+    /*
+        $(document).ready(function() {
+      setTimeout(function() {
+        $('html,body').animate({
+          scrollTop: $('#iWantToScrollHere').offset().top - 80
+        }, 900);
+      }, 3000);
+    });*/
 </script>
 <body style="font-size:18px;background-color:white;background-image: url('{% static 'img/bg-5.fw.png' %}')"
       id="{% block body_id %}body{% endblock %}">
 
-<img src="{% static "img/gzwm.fw.png" %}" id="img1" onmouseover="document.getElementById('img2').style.display='block'
+<img src="{% static " img/gzwm.fw.png" %}" id="img1" onmouseover="document.getElementById('img2').style.display='block'
 ;" onmouseout="document.getElementById('img2').style.display='none'
 ;">
-<img src="{% static "img/gzh2v.png" %}" id="img2">
+<img src="{% static " img/gzh2v.png" %}" id="img2">
 
 
 <nav class=" navbar navbar-default  navbar-fixed-top" role="navigation" style="background: #9d1d1d">
@@ -167,77 +176,81 @@
 <div class="container-fluid">
 
     {% nevercache %}
-        {% if messages %}
-            <div class="messages">
-                {% for message in messages %}c
-                    <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}c
+        <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
     {% endnevercache %}
 
     <div class="row ">
-        <div class="col-" style="display: block;background-image: url({% static "img/banner_bg.jpg" %})">
+        <div class="col-" style="display: block;background-image: url({% static " img
+        /banner_bg.jpg" %})">
 
-            <img id="image" style="margin: auto;"
-                 class="desktop-image"
-                 src="{% static "img/logo_big.fw.png" %}"
+        <img id="image" style="margin: auto;"
+             class="desktop-image"
+             src="{% static " img/logo_big.fw.png" %}"
 
-            >
-            <img id="image" style="margin: auto;"
-                 class="mobile-image"
-                 src="{% static "img/logo_sm.png" %}"
+        >
+        <img id="image" style="margin: auto;"
+             class="mobile-image"
+             src="{% static " img/logo_sm.png" %}"
 
-            >
+        >
 
 
-        </div>
-    </div>
-
-    <div class="row align-items-center">
-        <ul class="col breadcrumb">
-        </ul>
     </div>
 </div>
 
+<div class="row align-items-center">
+    <ul class="col breadcrumb">
+    </ul>
+</div>
+</div>
 
-<div id="iWantToScrollHere"  class="container-fluid ">
+
+<div id="iWantToScrollHere" class="container-fluid ">
     <div class="row justify-content-center">
-        <div class="col-md-3 " style="border: 1px solid #b7b2b0;margin-left:1px;margin-top:5px;height:460px;background-color: #fffbf2">
+        <div class="col-md-3 "
+             style="border: 1px solid #b7b2b0;margin-left:1px;margin-top:5px;height:460px;background-color: #fffbf2">
             {% block left_panel %}
-                <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
+            <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
             {% endblock %}
         </div>
         <div class="col-md-6  " style="background-color: #FFFFFF;">
             {% block main %}{% endblock %}
 
         </div>
-         {% block news %}
-            <div class="col-md-3  rounded-4  mx-auto text-xs text-center"
-                 style="margin-left:60px;width:300px;margin-top:10px;height:400px; ">
-                <div class="row">
-            {% search_form %}
+        {% block news %}
+        <div class="col-md-3  rounded-4  mx-auto text-xs text-center"
+             style="margin-left:60px;width:300px;margin-top:10px;height:400px; ">
+            <div class="row">
+                {% search_form %}
 
-                </div>
+            </div>
 
-                <div class="row" style="height:380px;background-color:#fefefd;border-width: 1px;border-style:dashed;border-color: #a9a9a9;">{% blog_recent_posts category="学院公告" as posts %}
+            <div class="row"
+                 style="height:380px;background-color:#fefefd;border-width: 1px;border-style:dashed;border-color: #a9a9a9;">
+                {% blog_recent_posts category="学院公告" as posts %}
 
 
                 <h3 class="">学院公告</h3>
 
                 {% for post in posts %}
 
-                    <h4><a href="{{ post.get_absolute_url }}" style="color:#702727">{{ post.title }}        </a></h4>
-                    <h5>发布时间：{{ post.publish_date |date:"Y-m-d"}}</h5>
+                <h4><a href="{{ post.get_absolute_url }}" style="color:#702727">{{ post.title }} </a></h4>
+                <h5>发布时间：{{ post.publish_date |date:"Y-m-d"}}</h5>
 
-                {% endfor %}</div>
-
-
-
+                {% endfor %}
             </div>
+
+
+        </div>
         {% endblock %}
 
     </div>
@@ -254,28 +267,32 @@
         <div class="row justify-content-center ">
 
             <div class="col-md-2 text-center">
-                <img src="{% static "img/foot_gzh.jpg" %}">
+                <img src="{% static " img/foot_gzh.jpg" %}">
 
             </div>
             <div class="col-md-3 center-block text-left"><p></p>
 
- <img src="{% static "img/foot_logo.fw.png" %}"><p></p>
-                <div><p>                                              版权所有 © 云南佛学院西双版纳分院<p>
-                  </div>
+                <img src="{% static " img/foot_logo.fw.png" %}"><p></p>
+                <div><p> 版权所有 © 云南佛学院西双版纳分院
+                    <p>
+                </div>
             </div>
-            <div class="col-md-4  text-left"><p></p><p> </p>
-             <p>  互联网宗教信息服务许可证：云（2022）0000029 </p>  <p>备案号：</p>
+            <div class="col-md-4  text-left"><p></p>
+                <p></p>
+                <p> 互联网宗教信息服务许可证：云（2022）0000029 </p>
+                <p>备案号：</p>
             </div>
-            <div class="col-md-2"><p> 地址： </p><p> 邮编：
-                666100 </p><p>电话：</p></div>
-            <div class="col-md-1"> </div>
-        </div>
+            <div class="col-md-3"><p> 地址： </p>
+                <p> 邮编：
+                    666100 </p>
+                <p>电话：</p></div>
+
     </div>
 
 </footer>
 
 {% block footer_js %}
-    {% include "includes/footer_scripts.html" %}
+{% include "includes/footer_scripts.html" %}
 {% endblock %}
 
 </body>
