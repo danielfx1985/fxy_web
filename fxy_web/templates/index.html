@@ -17,7 +17,7 @@
   <li  class="active"><a  style="color:#266d95"  href="#tab3" data-toggle="tab">要闻关注</a></li>
 </ul>
 
-<div class="tab-content">
+<div class="tab-content" style="padding-left:10px !important;background-color:#fffdf1;min-height:600px ">
   <div class="tab-pane" id="tab1">
     {% blog_recent_posts limit=8 category="宗教政策" as dongtai %}
         {% for post in dongtai %}
