@@ -10,30 +10,24 @@
     <meta name="description" content="{% block meta_description %}{% endblock %}">
     <title>
         {% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
-    <link rel="shortcut icon" href="{% static " img
+    <link rel="shortcut icon" href="{% static "img
     /favicon.ico" %}">
 
     {% ifinstalled "mezzanine.blog" %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url " blog_post_feed
-    " "rss" %}">
-    <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url " blog_post_feed
-    " "atom" %}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url " blog_post_feed" "rss" %}">
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url " blog_post_feed" "atom" %}">
     {% endifinstalled %}
-    <link rel="stylesheet" href="{% static " css
-    /csbootstrap.css" %}">
+    <link rel="stylesheet" href="{% static " css/csbootstrap.css" %}">
     {% compress css %}
 
 
-    <link rel="stylesheet" href="{% static " css
-    /mezzanine.css" %}">
+    <link rel="stylesheet" href="{% static " css/mezzanine.css" %}">
 
 
     {% ifinstalled "cartridge.shop" %}
-    <link rel="stylesheet" href="{% static " css
-    /cartridge.css" %}">
+    <link rel="stylesheet" href="{% static " css/cartridge.css" %}">
     {% if LANGUAGE_BIDI %}
-    <link rel="stylesheet" href="{% static " css
-    /cartridge.rtl.css" %}">
+    <link rel="stylesheet" href="{% static " css/cartridge.rtl.css" %}">
     {% endif %}
     {% endifinstalled %}
     {% block extra_css %}{% endblock %}
@@ -44,10 +38,8 @@
     /js/"|add:settings.JQUERY_FILENAME %}"></script>
 
 
-    <script src="{% static " js
-    /bootstrap-extras.js" %}"></script>
-    <script src="{% static " js
-    /bootstrap320.js" %}"></script>
+    <script src="{% static " js/bootstrap-extras.js" %}"></script>
+    <script src="{% static " js/bootstrap320.js" %}"></script>
     {% block extra_js %}{% endblock %}
     {% endcompress %}
 
@@ -94,14 +86,14 @@
     ");
         }*/
     .navbar-nav::before {
-        content: url("{% static " img/nav-l.fw.png " %}");
+        content: url("{% static "img/nav-l.fw.png " %}");
         margin-right: 5px;
         margin-top: 5px;
         margin-bottom: -3px;
     }
 
     .navbar-nav::after {
-        content: url("{% static " img/nav-r.fw.png " %}");
+        content: url("{% static "img/nav-r.fw.png " %}");
         margin-left: 5px;
         margin-top: 5px;
         margin-bottom: -3px;
@@ -199,7 +191,7 @@
         >
         <img id="image" style="margin: auto;"
              class="mobile-image"
-             src="{% static " img/logo_sm.png" %}"
+             src="{% static "img/logo_sm.png" %}"
 
         >
 
