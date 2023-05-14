@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Book List</h1>
+{% if books %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>书名</th>
+            <th>作者</th>
+            <th>简介</th>
+
+            <th>下载链接</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.description }}</td>
+
+            <td><a href="{{ book.file.url }}" class="btn btn-primary">下载</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No books found.</p>
+{% endif %}
+<a href="{% url 'book_upload' %}" class="btn btn-primary">上传新书</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Delete Book</h1>
+
+<p>Are you sure you want to delete "{{ book.title }}"?</p>
+
+<a href="{% url 'book_delete' book.id %}?confirm=yes">Yes, delete it</a>
+<a href="{% url 'book_list' %}">No, cancel</a>
+</body>
+</html>

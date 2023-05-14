@@ -134,9 +134,10 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
+LOGIN_URL = '/admin/login/'
 #############
 # DATABASES #
+#############
 #############
 
 DATABASES = {
@@ -242,6 +243,7 @@ INSTALLED_APPS = [
     "mezzanine.blog",
     "mezzanine.forms",
     "mezzanine.galleries",
+    "library"
     # "mezzanine.twitter",
     # 'mezzanine.accounts',
 ]

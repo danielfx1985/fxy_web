@@ -22,7 +22,7 @@ urlpatterns = [
     # interface, which would be marginally more secure.
     path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path("admin/", include(admin.site.urls)),
-
+    path("library/", include('library.urls')),
     path('start/',views.start,name='start'),
 #re_path("^stu/", include('stuManage.urls')),
   #  path("uploader/",include('uploader.urls')),
