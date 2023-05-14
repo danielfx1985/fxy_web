@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+ {% block left_panel %}{% endblock %}
+{% block main %}
+<h1>上传新书</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">上传</button>
+</form>
+{% endblock %}

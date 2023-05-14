@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+ {% block left_panel %}{% endblock %}
+{% block main %}
+<h1><a href="/library">图书馆</a> </h1>
+<form method="get" action="{% url 'book_search' %}">
+        <input type="text" name="q" placeholder="书名">
+        <button type="submit">搜索图书</button>
+    </form>
+{% if books %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>书名</th>
+            <th>作者</th>
+            <th>简介</th>
+
+            <th>下载链接</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.description }}</td>
+
+            <td><a href="{{ book.file.url }}" class="btn btn-default">下载</a>
+            <a href="/library/delete/{{book.id}}" class="btn btn-danger" id="delete-link">删除</a>
+            </td>
+        </tr>
+        <script>
+document.getElementById('delete-link').addEventListener('click', function(event) {
+    event.preventDefault(); // prevent the default link behavior
+    if (window.confirm('你确定要删除这本书?')) {
+        window.location.href = event.target.href; // navigate to the link URL
+    }
+});
+</script>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>目前没有图书.</p>
+{% endif %}
+{% if user.is_authenticated %}
+    <!-- 用户已登录，显示按钮 -->
+   <a href="{% url 'book_upload' %}" class="btn btn-default">上传新书</a>
+{% endif %}
+{% endblock %}
