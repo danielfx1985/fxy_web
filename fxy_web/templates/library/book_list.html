@@ -25,7 +25,7 @@
             <td>{{ book.description }}</td>
 
             <td><a href="{{ book.file.url }}" class="btn btn-default">下载</a>
-            <a href="/library/delete/{{book.id}}" class="btn btn-danger" id="delete-link">删除</a>
+          {% if user.is_authenticated %}  <a href="/library/delete/{{book.id}}" class="btn btn-danger" id="delete-link">删除</a>{% endif %}
             </td>
         </tr>
         <script>
