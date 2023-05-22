@@ -14,7 +14,8 @@
 <ul class="nav nav-tabs" style="margin-left:-140px;background-color:#f3f3f3;">
   <li><a   style="color:#266d95" href="#tab1" data-toggle="tab">宗教政策</a></li>
   <li><a style="color:#266d95" href="#tab2" data-toggle="tab">法规章程</a></li>
-  <li  class="active"><a  style="color:#266d95"  href="#tab3" data-toggle="tab">要闻关注</a></li>
+  <li  ><a  style="color:#266d95"  href="#tab3" data-toggle="tab">要闻关注</a></li>
+    <li  class="active"><a  style="color:#266d95"  href="#tab4" data-toggle="tab">学院动态</a></li>
 </ul>
 
 <div class="tab-content" style="margin-left:-140px !important;background-color:#f3f3f3;min-height:600px ">
@@ -40,6 +41,16 @@
   </div>
   <div class="tab-pane  active" id="tab3">
     {% blog_recent_posts limit=8 category="新闻大事" as dongtai %}
+        {% for post in dongtai %}
+
+            <h4><a href="{{ post.get_absolute_url }}" style="color:#702727">{{ post.title }}</a></h4><h5>发布时间：{{ post.publish_date |date:"Y-m-d"}}</h5>
+
+
+
+        {% endfor %}
+  </div>
+     <div class="tab-pane  active" id="tab4">
+    {% blog_recent_posts limit=8 category="学院动态" as dongtai %}
         {% for post in dongtai %}
 
             <h4><a href="{{ post.get_absolute_url }}" style="color:#702727">{{ post.title }}</a></h4><h5>发布时间：{{ post.publish_date |date:"Y-m-d"}}</h5>
