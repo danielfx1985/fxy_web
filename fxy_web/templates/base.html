@@ -122,6 +122,18 @@
     }
 </style>
 <script>
+
+ $(document).ready(function() {
+         // 获取页面中的所有img元素
+var imgElements = document.getElementsByTagName('img');
+
+// 遍历所有img元素并添加class属性
+for (var i = 0; i < imgElements.length; i++) {
+  imgElements[i].classList.add('img-responsive');
+}
+
+
+ });
 /*
     $(document).ready(function() {
   setTimeout(function() {
