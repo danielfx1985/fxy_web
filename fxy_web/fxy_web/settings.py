@@ -112,7 +112,12 @@ USE_TZ = True
 LANGUAGE_CODE = "zh-hans"
 SEARCH_MODEL_CHOICES=('pages.Page', 'blog.BlogPost')
 # Supported languages
-LANGUAGES = (("zh-hans", _("简体中文")),)
+# LANGUAGES = (("zh-hans", _("简体中文")),)
+LANGUAGES =  (
+    ('en', ('English')),
+    ('zh-cn', ('中文简体')),
+    ('zh-tw', ('中文繁體')),
+)
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
 # production. Best set to ``True`` in local_settings.py
